@@ -42,9 +42,9 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Center Logo/Wordmark */}
+        {/* Logo/Wordmark */}
         <div className="flex items-center md:justify-center">
-          <Link href="/" className="text-base md:text-2xl font-light tracking-[0.1em] md:tracking-[0.3em] text-white uppercase z-50 shrink-0">
+          <Link href="/" className="ml-4 md:ml-0 text-sm md:text-2xl font-light tracking-normal md:tracking-[0.3em] text-white uppercase z-50 shrink-0">
             Jesko Jets
           </Link>
         </div>
