@@ -29,9 +29,6 @@ export default function Navbar({ onBookClick }: NavbarProps) {
       >
         <div className="max-w-[1400px] mx-auto flex items-center justify-between md:grid md:grid-cols-3 w-full">
           
-          {/* Mobile Left Spacer (Balances the hamburger icon to keep logo perfectly centered on mobile) */}
-          <div className="md:hidden w-12" />
-
         {/* Left Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 justify-start">
           {["About", "Our Fleet", "Advantages", "Global"].map((link) => (
@@ -46,8 +43,8 @@ export default function Navbar({ onBookClick }: NavbarProps) {
         </nav>
 
         {/* Center Logo/Wordmark */}
-        <div className="flex items-center justify-center">
-          <Link href="/" className="text-base md:text-2xl font-light tracking-[0.15em] md:tracking-[0.3em] text-white uppercase z-50 shrink-0">
+        <div className="flex items-center md:justify-center">
+          <Link href="/" className="text-base md:text-2xl font-light tracking-[0.1em] md:tracking-[0.3em] text-white uppercase z-50 shrink-0">
             Jesko Jets
           </Link>
         </div>
