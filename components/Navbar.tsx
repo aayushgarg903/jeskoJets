@@ -72,7 +72,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             </svg>
           ) : (
             <svg className="w-8 h-8 font-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
         </button>
