@@ -5,9 +5,10 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-mot
 
 interface PlaneMorphProps {
   images: HTMLImageElement[];
+  onBookClick?: () => void;
 }
 
-export default function PlaneMorph({ images }: PlaneMorphProps) {
+export default function PlaneMorph({ images, onBookClick }: PlaneMorphProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | null>(null);
@@ -191,12 +192,12 @@ export default function PlaneMorph({ images }: PlaneMorphProps) {
 
             {/* Bottom Center: CTA Button (absolute to stay perfectly centered) */}
             <div className="absolute left-1/2 bottom-0 -translate-x-1/2 flex items-center gap-2 pointer-events-auto">
-              <a href="#contact" className="bg-white text-black px-6 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-white/90 transition-colors shadow-lg">
+              <button onClick={onBookClick} className="bg-white text-black px-6 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-white/90 transition-colors shadow-lg">
                 Book the Flight
-              </a>
-              <a href="#contact" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg">
+              </button>
+              <button onClick={onBookClick} className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors shadow-lg">
                 <svg className="w-4 h-4 text-black transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-              </a>
+              </button>
             </div>
 
           </div>

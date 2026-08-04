@@ -26,7 +26,11 @@ const features = [
   }
 ];
 
-export default function FeaturesAccordion() {
+interface FeaturesAccordionProps {
+  onBookClick?: () => void;
+}
+
+export default function FeaturesAccordion({ onBookClick }: FeaturesAccordionProps = {}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -76,12 +80,12 @@ export default function FeaturesAccordion() {
           </div>
 
           <div className="mt-16 flex items-center justify-center lg:justify-start gap-2">
-            <a href="#contact" className="bg-white text-black px-6 py-3 rounded-full text-[11px] md:text-xs font-bold hover:bg-white/90 transition-colors shadow-sm border border-[#1c1c1c]/5">
+            <button onClick={onBookClick} className="bg-white text-black px-6 py-3 rounded-full text-[11px] md:text-xs font-bold hover:bg-white/90 transition-colors shadow-sm border border-[#1c1c1c]/5">
               Book the Flight
-            </a>
-            <a href="#contact" className="w-11 h-11 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors shadow-sm border border-[#1c1c1c]/5">
+            </button>
+            <button onClick={onBookClick} className="w-11 h-11 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors shadow-sm border border-[#1c1c1c]/5">
               <svg className="w-4 h-4 text-black transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-            </a>
+            </button>
           </div>
         </div>
 

@@ -47,9 +47,9 @@ export default function Home() {
       {/* Main Scrollytelling Sections (Mounted and ready) */}
       <div className={isAllLoaded ? "opacity-100 transition-opacity duration-1000" : "opacity-0"}>
         <Navbar onBookClick={() => setIsBookingModalOpen(true)} />
-        <HeroScroll images={seq1.images} />
-        <PlaneMorph images={seq2.images} />
-        <FeaturesAccordion />
+        <HeroScroll images={seq1.images} onBookClick={() => setIsBookingModalOpen(true)} />
+        <PlaneMorph images={seq2.images} onBookClick={() => setIsBookingModalOpen(true)} />
+        <FeaturesAccordion onBookClick={() => setIsBookingModalOpen(true)} />
         <DestinationsTicker />
         <GlobeFooter onBookClick={() => setIsBookingModalOpen(true)} />
       </div>

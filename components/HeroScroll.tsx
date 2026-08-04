@@ -6,9 +6,10 @@ import { ChevronDown } from "lucide-react";
 
 interface HeroScrollProps {
   images: HTMLImageElement[];
+  onBookClick?: () => void;
 }
 
-export default function HeroScroll({ images }: HeroScrollProps) {
+export default function HeroScroll({ images, onBookClick }: HeroScrollProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationFrameRef = useRef<number | null>(null);
@@ -164,12 +165,12 @@ export default function HeroScroll({ images }: HeroScrollProps) {
             {/* Bottom Center: CTA Button */}
             <div className="flex md:justify-center mb-0 md:mb-[-1rem] pointer-events-auto">
               <div className="flex items-center gap-2">
-                <a href="#contact" className="bg-white text-black px-6 md:px-8 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-white/90 transition-colors">
+                <button onClick={onBookClick} className="bg-white text-black px-6 md:px-8 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-white/90 transition-colors">
                   Book the Flight
-                </a>
-                <a href="#contact" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors">
+                </button>
+                <button onClick={onBookClick} className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors">
                   <svg className="w-4 h-4 text-black transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-                </a>
+                </button>
               </div>
             </div>
 
@@ -223,13 +224,13 @@ export default function HeroScroll({ images }: HeroScrollProps) {
               <h3 className="text-lg md:text-xl font-bold tracking-tight mb-4 leading-tight">
                 Direct Access to<br/>Private Travel
               </h3>
-              <div className="flex items-center gap-2 mb-4">
-                <a href="#contact" className="bg-white text-black px-5 py-2 rounded-full text-[9px] md:text-[10px] font-bold hover:bg-white/90 transition-colors">
+              <div className="flex items-center gap-2 mt-4 md:mt-0">
+                <button onClick={onBookClick} className="bg-[#1c1c1c] text-white px-6 md:px-8 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-black transition-colors">
                   Book the Flight
-                </a>
-                <a href="#contact" className="w-7 h-7 md:w-8 md:h-8 bg-white rounded-full flex items-center justify-center hover:bg-white/90 transition-colors">
-                  <svg className="w-3 h-3 text-black transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
-                </a>
+                </button>
+                <button onClick={onBookClick} className="w-10 h-10 bg-[#1c1c1c] rounded-full flex items-center justify-center hover:bg-black transition-colors">
+                  <svg className="w-4 h-4 text-white transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                </button>
               </div>
               <p className="text-[8px] md:text-[9px] text-white/80 font-medium leading-relaxed">
                 Fly beyond boundaries with Jesko Jets. Our global operations ensure seamless, personalized travel experiences — from the moment you book to arrival.
