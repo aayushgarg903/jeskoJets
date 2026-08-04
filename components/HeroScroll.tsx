@@ -139,15 +139,15 @@ export default function HeroScroll({ images }: HeroScrollProps) {
             </h1>
           </div>
 
-          {/* Center Floating Logo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          {/* Center Floating Logo - Hidden on mobile to prevent overlap */}
+          <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <span className="text-3xl md:text-5xl font-light text-white tracking-[0.2em] opacity-80 uppercase">
               Jesko Jets
             </span>
           </div>
 
           {/* Bottom Level: Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-8 mt-auto pb-8 md:pb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 items-end gap-6 md:gap-8 mt-auto pb-4 md:pb-12">
             
             {/* Bottom Left: Freedom Text */}
             <div className="max-w-[280px]">
@@ -161,7 +161,7 @@ export default function HeroScroll({ images }: HeroScrollProps) {
             </div>
 
             {/* Bottom Center: CTA Button */}
-            <div className="flex justify-center mb-[-1rem] pointer-events-auto">
+            <div className="flex md:justify-center mb-0 md:mb-[-1rem] pointer-events-auto">
               <div className="flex items-center gap-2">
                 <a href="#contact" className="bg-white text-black px-6 md:px-8 py-3 rounded-full text-[10px] md:text-xs font-bold hover:bg-white/90 transition-colors">
                   Book the Flight
@@ -173,8 +173,8 @@ export default function HeroScroll({ images }: HeroScrollProps) {
             </div>
 
             {/* Bottom Right: Distinction & Scroll */}
-            <div className="flex flex-col items-end text-right">
-              <h1 className="text-5xl md:text-6xl lg:text-[75px] xl:text-[85px] font-bold tracking-tight text-white leading-[0.9] mb-10">
+            <div className="flex flex-col items-start md:items-end text-left md:text-right mt-4 md:mt-0">
+              <h1 className="text-[40px] md:text-6xl lg:text-[75px] xl:text-[85px] font-bold tracking-tight text-white leading-[0.9] mb-6 md:mb-10">
                 We are <br /> distinction
               </h1>
               <div className="w-full h-[1px] bg-white/30 mb-5" />
