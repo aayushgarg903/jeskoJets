@@ -27,7 +27,10 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           scrolled ? "py-5 px-6 md:px-12" : "py-8 px-6 md:px-16"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto grid grid-cols-3 items-center w-full">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between md:grid md:grid-cols-3 w-full">
+          
+          {/* Mobile Left Spacer (Balances the hamburger icon to keep logo perfectly centered on mobile) */}
+          <div className="md:hidden w-12" />
 
         {/* Left Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 justify-start">
@@ -44,9 +47,9 @@ export default function Navbar({ onBookClick }: NavbarProps) {
 
         {/* Center Logo/Wordmark */}
         <div className="flex items-center justify-center">
-          <span className="text-xl md:text-2xl tracking-[0.3em] font-bold text-white whitespace-nowrap">
-            JESKO JETS
-          </span>
+          <Link href="/" className="text-base md:text-2xl font-light tracking-[0.15em] md:tracking-[0.3em] text-white uppercase z-50 shrink-0">
+            Jesko Jets
+          </Link>
         </div>
 
         {/* Right Contact Info & CTA */}
