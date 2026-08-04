@@ -57,18 +57,22 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-2xl bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl overflow-hidden pointer-events-auto"
+              className="w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0a0a0a] border border-white/10 rounded-2xl shadow-2xl pointer-events-auto scrollbar-hide"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="modal-title"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5">
                 <div className="flex items-center gap-3 text-white">
-                  <PlaneTakeoff className="w-6 h-6 text-white/70" />
-                  <h3 className="text-xl md:text-2xl font-bold tracking-[0.2em] uppercase">
+                  <PlaneTakeoff className="w-6 h-6 text-white/70" aria-hidden="true" />
+                  <h3 id="modal-title" className="text-xl md:text-2xl font-bold tracking-[0.2em] uppercase">
                     Request a Flight
                   </h3>
                 </div>
                 <button
                   onClick={onClose}
+                  aria-label="Close modal"
                   className="text-white/50 hover:text-white transition-colors p-2 rounded-full hover:bg-white/5"
                 >
                   <X className="w-5 h-5" />
@@ -76,7 +80,7 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
               </div>
 
               {/* Body */}
-              <div className="p-6 md:p-8 relative min-h-[400px]">
+              <div className="p-5 md:p-8 relative min-h-[350px] md:min-h-[400px]">
                 <AnimatePresence mode="wait">
                   {isSuccess ? (
                     <motion.div

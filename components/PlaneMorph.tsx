@@ -110,65 +110,65 @@ export default function PlaneMorph({ images }: PlaneMorphProps) {
         {/* Overlay: Detailed Aircraft Specs */}
         <motion.div
           style={{ opacity: textOpacity, y: textY }}
-          className="absolute inset-0 z-30 pointer-events-none p-6 md:p-12 lg:p-20 flex flex-col justify-between"
+          className="absolute inset-0 z-30 pointer-events-none p-4 sm:p-6 md:p-12 lg:p-20 flex flex-col justify-between"
         >
           {/* Top Section */}
-          <div className="flex justify-between items-start w-full">
+          <div className="flex flex-col sm:flex-row justify-between items-start w-full gap-4 sm:gap-0">
             {/* Top Left: Gulfstream 650ER */}
             <div className="flex flex-col">
-              <span className="text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-black mb-2 opacity-80">
+              <span className="text-xs sm:text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-black mb-1 md:mb-2 opacity-80">
                 Gulfstream
               </span>
-              <h2 className="text-6xl md:text-[90px] lg:text-[110px] leading-[0.8] font-black uppercase text-[#111111] tracking-tighter drop-shadow-sm" style={{ fontStretch: 'expanded' }}>
+              <h2 className="text-[42px] sm:text-6xl md:text-[90px] lg:text-[110px] leading-[0.8] font-black uppercase text-[#111111] tracking-tighter drop-shadow-sm" style={{ fontStretch: 'expanded' }}>
                 650ER
               </h2>
             </div>
 
             {/* Top Right: Range & Description */}
-            <div className="flex flex-col max-w-[300px]">
-              <h3 className="text-sm md:text-base tracking-[0.1em] uppercase font-bold text-[#1c1c1c] leading-relaxed mb-16">
-                Ultra-long-range<br/>Aircraft
+            <div className="flex flex-col w-full max-w-[280px] md:max-w-[300px]">
+              <h3 className="text-xs md:text-base tracking-[0.1em] uppercase font-bold text-[#1c1c1c] leading-relaxed mb-4 md:mb-16">
+                Ultra-long-range<br className="hidden md:block"/> Aircraft
               </h3>
               
-              <div className="w-full h-[1px] bg-[#1c1c1c]/10 mb-6" />
-              <h4 className="text-[9px] tracking-[0.2em] font-bold text-[#1c1c1c] uppercase mb-6">
+              <div className="hidden sm:block w-full h-[1px] bg-[#1c1c1c]/10 mb-6" />
+              <h4 className="hidden sm:block text-[9px] tracking-[0.2em] font-bold text-[#1c1c1c] uppercase mb-6">
                 Direct Access To<br/>Private Travel
               </h4>
-              <p className="text-[10px] md:text-[11px] text-[#1c1c1c]/80 font-medium leading-relaxed">
+              <p className="hidden sm:block text-[10px] md:text-[11px] text-[#1c1c1c]/80 font-medium leading-relaxed">
                 A true time-saving machine it brings Tokyo and New York an hour closer, and at 92% of the speed of sound, it can circle the globe with just a single stop.
               </p>
             </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="flex justify-between items-end w-full relative">
+          <div className="flex flex-col sm:flex-row justify-between items-end w-full relative pb-16 sm:pb-0">
             
             {/* Bottom Left: Specs Grid */}
-            <div className="max-w-[400px] w-full">
-              <div className="grid grid-cols-2 gap-x-8 gap-y-6 pb-6 border-b border-[#1c1c1c]/10">
+            <div className="w-full max-w-[320px] md:max-w-[400px]">
+              <div className="grid grid-cols-2 gap-x-4 md:gap-x-8 gap-y-4 md:gap-y-6 pb-4 md:pb-6 border-b border-[#1c1c1c]/10">
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Maximum Operating Range</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase">11,263 KM</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Max Operating Range</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase">11,263 KM</span>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Speed</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase">480 KNOTS</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Speed</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase">480 KNOTS</span>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Passenger Capacity</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase pr-4">Up to 12 seats (+1 Cabin Server)</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Passenger Capacity</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase pr-2 md:pr-4">Up to 12 seats (+1 Server)</span>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Endurance</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase pr-4">14 HRS (Maximum for European based aircraft)</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Endurance</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase pr-2 md:pr-4">14 HRS (Max European)</span>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Baggage Capacity</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase">5.52 M³</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Baggage Capacity</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase">5.52 M³</span>
                 </div>
                 <div>
-                  <span className="block text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Cruising Altitude</span>
-                  <span className="block text-[10px] md:text-xs font-black text-[#1c1c1c] uppercase">15,544 M</span>
+                  <span className="block text-[7px] md:text-[8px] tracking-[0.1em] text-[#1c1c1c]/50 uppercase font-bold mb-1">Cruising Altitude</span>
+                  <span className="block text-[9px] md:text-xs font-black text-[#1c1c1c] uppercase">15,544 M</span>
                 </div>
               </div>
               

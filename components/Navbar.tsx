@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
   onBookClick?: () => void;
@@ -20,13 +21,13 @@ export default function Navbar({ onBookClick }: NavbarProps) {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 mix-blend-difference ${scrolled
-          ? "py-5 px-6 md:px-12"
-          : "py-8 px-6 md:px-16"
+    <header className="fixed top-0 left-0 w-full z-50">
+      <div 
+        className={`w-full transition-all duration-700 mix-blend-difference ${
+          scrolled ? "py-5 px-6 md:px-12" : "py-8 px-6 md:px-16"
         }`}
-    >
-      <div className="max-w-[1400px] mx-auto grid grid-cols-3 items-center w-full">
+      >
+        <div className="max-w-[1400px] mx-auto grid grid-cols-3 items-center w-full">
 
         {/* Left Navigation */}
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 justify-start">
@@ -68,34 +69,43 @@ export default function Navbar({ onBookClick }: NavbarProps) {
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+    </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 px-8 py-8 flex flex-col gap-6 animate-fadeIn">
-          {["About", "Our Fleet", "Advantages", "Global"].map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(" ", "-")}`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-bold text-white tracking-wide"
-            >
-              {link}
-            </a>
-          ))}
-          <div className="flex flex-col gap-4 mt-4 pt-4 border-t border-white/10 text-white font-bold text-sm">
-            <a href="tel:+919034010351">+91 9034010351</a>
-            <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onBookClick?.();
-              }}
-              className="text-left py-2 hover:text-white/70 transition-colors uppercase tracking-widest text-xs"
-            >
-              Book a Flight
-            </button>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-[#050505] pt-28 px-8 pb-8 flex flex-col gap-6 w-full h-screen overflow-y-auto pointer-events-auto"
+          >
+            {["About", "Our Fleet", "Advantages", "Global"].map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase().replace(" ", "-")}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-bold text-white tracking-wide"
+              >
+                {link}
+              </a>
+            ))}
+            <div className="flex flex-col gap-4 mt-4 pt-4 border-t border-white/10 text-white font-bold text-sm">
+              <a href="tel:+919034010351">+91 9034010351</a>
+              <button 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onBookClick?.();
+                }}
+                className="text-left py-2 hover:text-white/70 transition-colors uppercase tracking-widest text-xs"
+              >
+                Book a Flight
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

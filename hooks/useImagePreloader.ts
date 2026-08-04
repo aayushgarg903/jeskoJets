@@ -27,6 +27,16 @@ export function useImagePreloader(
       return;
     }
 
+    // Fallback timeout: If network is extremely slow, force load after 15 seconds
+    const fallbackTimeout = setTimeout(() => {
+      if (!isMounted) return;
+      if (!isLoaded) {
+        setImages(loadedImages);
+        setIsLoaded(true);
+        console.warn(`Preloader timeout triggered for ${folderPath}`);
+      }
+    }, 15000);
+
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
       const frameNum = String(i).padStart(padding, "0");
@@ -63,6 +73,7 @@ export function useImagePreloader(
 
     return () => {
       isMounted = false;
+      clearTimeout(fallbackTimeout);
     };
   }, [folderPath, frameCount, padding]);
 
