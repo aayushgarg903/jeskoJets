@@ -35,7 +35,8 @@ export default function PlaneMorph({ images }: PlaneMorphProps) {
 
       if (!img || !img.complete || img.naturalWidth === 0) return;
 
-      const dpr = window.devicePixelRatio || 1;
+      const isMobile = window.innerWidth < 768;
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       const width = window.innerWidth;
       const height = window.innerHeight;
 
@@ -48,7 +49,7 @@ export default function PlaneMorph({ images }: PlaneMorphProps) {
       ctx.scale(dpr, dpr);
       
       ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = "high";
+      ctx.imageSmoothingQuality = isMobile ? "low" : "high";
       
       ctx.clearRect(0, 0, width, height);
 

@@ -39,8 +39,9 @@ export default function HeroScroll({ images }: HeroScrollProps) {
 
       if (!img || !img.complete || img.naturalWidth === 0) return;
 
-      // Handle Retina displays & canvas sizing
-      const dpr = window.devicePixelRatio || 1;
+      // Handle Retina displays & canvas sizing. Force DPR to 1 on mobile for performance.
+      const isMobile = window.innerWidth < 768;
+      const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
       const width = window.innerWidth;
       const height = window.innerHeight;
 
@@ -53,7 +54,7 @@ export default function HeroScroll({ images }: HeroScrollProps) {
       ctx.scale(dpr, dpr);
       
       ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = "high";
+      ctx.imageSmoothingQuality = isMobile ? "low" : "high";
       
       ctx.clearRect(0, 0, width, height);
 
