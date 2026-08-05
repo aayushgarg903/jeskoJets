@@ -30,7 +30,8 @@ export function useImagePreloader(
     // Fallback timeout: If network is extremely slow, force load after 15 seconds
     const fallbackTimeout = setTimeout(() => {
       if (!isMounted) return;
-      if (!isLoaded) {
+      // If we haven't reached frameCount yet, force finish
+      if (loadedCount < frameCount) {
         setImages(loadedImages);
         setIsLoaded(true);
         console.warn(`Preloader timeout triggered for ${folderPath}`);
